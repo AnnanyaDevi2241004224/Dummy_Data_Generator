@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY APP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body style="background-color: rgb(115, 105, 105);">
+    <div class="container" style="display: flex; align-items: center; justify-content: center; margin-top:100px; width: 500px; height: 550px; background-color: rgb(158, 156, 156); flex-direction: column; outline: 3px solid white; outline-offset: 5px;">
+      <div class="card" style="width: 30rem; height: 30rem;">
+        <img src="https://miro.medium.com/v2/resize:fit:701/1*JevSuUSlEzaP1ZhC00Ywgg.jpeg" class="card-img-top" alt=".........">
+        <div class="card-body">
+          <h5 class="card-title">DUMMY DATA GENERATOR</h5>
+          <p class="card-text">Click on the button below to generate 10 sets of duplicate data.
+            <br>like:
+            <code>
+              <br>{
+               <br> name: "Person 1",
+                <br>salary: 45000000,
+                <br>language: "Python",
+               <br> city: "New York",
+               <br> isManager: true
+              <br>}
+            </code>
+          </p>
+          <!-- <button type="button" class="btn btn-info">Generate Data</button> -->
+        </div>
+      </div>
+        <button type="button" class="btn btn-info" style="margin-top:20px ;">Generate Data</button>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document.querySelector(".container> button").addEventListener("click",async()=>{
+            console.log('clicked');
+            let a=await fetch("/generate")
+            let b=await a.json()
+            console.log(b);  
+        })
+    </script>
+</body>
+</html>
